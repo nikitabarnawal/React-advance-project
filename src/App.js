@@ -1,8 +1,7 @@
 import "./App.css";
+import store from "./redux/store";
 import { Provider } from "react-redux";
 import UserList from "./components/UserList";
-import store from "./store";
-
 
 function App() {
   return (

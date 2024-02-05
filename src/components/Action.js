@@ -1,10 +1,7 @@
-import heart from "../image/heart.svg";
-import trash from "../image/delete.svg";
-
-const edit = (
+const editIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="edit icon icon-tabler icon-tabler-pencil"
+    className="edit icon icon-tabler icon-tabler-pencil"
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -23,7 +20,7 @@ const edit = (
 const deleteImg = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="delete icon icon-tabler icon-tabler-trash"
+    className="delete icon icon-tabler icon-tabler-trash"
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -42,12 +39,38 @@ const deleteImg = (
   </svg>
 );
 
-const Action = () => {
+const heart = (isLiked) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={`icon icon-tabler icon-tabler-heart heartbeat ${
+      isLiked ? "liked" : ""
+    } `}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    stroke-width="2"
+    stroke="red"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+  </svg>
+);
+
+const Action = ({ id, isCardLiked, likeCard, deleteCard, editCard }) => {
   return (
     <div className="action-wrapper">
-      <img src={heart} alt="heart" />
-      {edit}
-      {deleteImg}
+      <div className="heartBtn" onClick={() => likeCard(id)}>
+        {heart(isCardLiked)}
+      </div>
+      <div className="editBtn" onClick={() => editCard(id)}>
+        {editIcon}
+      </div>
+      <div className="deleteBtn" onClick={() => deleteCard(id)}>
+        {deleteImg}
+      </div>
     </div>
   );
 };

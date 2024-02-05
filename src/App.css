@@ -9,36 +9,130 @@ body {
 }
 
 .App {
-  padding: 1%;
-}
-
-.user-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  position: relative;
 }
 
 .user {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
-  height: 407px;
+  margin: 15px;
   width: 415px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
 }
 
-.user-profile {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .user:hover {
-  cursor: pointer;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5), 0 3px 1px -2px rgba(0, 0, 0, 0.42),
     0 2px 5px 0 rgba(0, 0, 0, 0.7);
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.card-modal {
+  height: 400px;
+  width: 500px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 4px;
+  position: absolute;
+  top: 18%;
+  left: 35%;
+}
+
+.close-modal {
+  outline: none;
+  border: none;
+}
+
+.close-modal:hover {
+  cursor: pointer;
+}
+
+.card-title {
+  height: 50px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.card-info {
+  flex-grow: 1;
+  padding: 25px 25px 25px 100px;
+}
+
+.card-info p {
+  padding-bottom: 25px;
+}
+
+.card-info input {
+  height: 34px;
+  width: 274px;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  padding-left: 5px;
+}
+
+.card-info input:hover {
+  border: 1px solid #1890ff;
+}
+
+.card-close {
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  padding: 0px 20px;
+  align-items: center;
+  border-top: 1px solid #e8e8e8;
+}
+
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-cancel {
+  width: 80px;
+  margin-right: 7px;
+  background-color: transparent;
+}
+
+.card-success {
+  width: 50px;
+  border: #1890ff;
+  background-color: #1877f2;
+  color: white;
+}
+
+.card-cancel,
+.card-success {
+  padding: 7px;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+}
+
+.liked {
+  fill: red;
+}
+
+.heartBtn:hover,
+.editBtn:hover,
+.deleteBtn:hover {
+  cursor: pointer;
 }
 
 .avatar {
@@ -53,7 +147,7 @@ body {
 
 .user-detail {
   text-align: left;
-  padding: 20px;
+  padding: 24px;
 }
 
 .user-info {
@@ -84,6 +178,10 @@ body {
   stroke: #1877f2;
 }
 
+footer button:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767px) {
   .App {
     padding: 10px 9px;
@@ -91,6 +189,20 @@ body {
 
   .user-profile {
     display: block;
-    height: 70vh;
+    height: 55vh;
+  }
+
+  .card-modal {
+    left: 6%;
+    width: 327px;
+  }
+
+  .card-info input {
+    width: 208px;
+  }
+
+  .card-info {
+    padding-top: 25px;
+    padding-left: 25px;
   }
 }
